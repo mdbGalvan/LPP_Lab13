@@ -6,6 +6,16 @@ require 'rspec/core/rake_task'
 RSpec::Core::RakeTask.new
 task :default => :spec
 
+require 'rake/testtask'
+
+desc "Se ejecutan todas las pruebas que se han programado."
+Rake::TestTask.new do |t|
+    t.libs << "test"
+	# test_files: Define explicitamente la lista de archivos de prueba para ser incluidos en una prueba.
+    t.test_files = FileList['test/tc_*.rb']
+    t.verbose = true # Detalle
+end
+
 desc "Run Quiz with a example"
 task :example do
 	sh "ruby -Ilib bin/quizDSL_main.rb"
