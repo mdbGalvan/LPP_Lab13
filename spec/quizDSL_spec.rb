@@ -84,7 +84,7 @@ describe QuizDSL do
     end
 
     describe "#Quiz_run" do 
-        it "Debe responder al método right" do
+        it "Debe responder al método run" do
             (@quiz.respond_to? :run).should == true
         end
     end
